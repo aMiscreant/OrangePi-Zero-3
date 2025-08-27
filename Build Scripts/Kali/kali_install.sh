@@ -32,10 +32,10 @@ sudo rm -rf /var/lib/apt/lists/*   # removes old repo indexes
 
 # Step 5: Update + upgrade
 echo "[*] Updating package lists..."
-sudo apt update
+sudo apt-get update
 
-echo "[*] Performing full dist-upgrade (this will take a while)..."
-sudo apt -y dist-upgrade
+echo "[*] Performing Upgrade (this will take a while)..."
+sudo apt-get upgrade -y
 
 # Step 6: Clean-up
 echo "[*] Cleaning up..."
