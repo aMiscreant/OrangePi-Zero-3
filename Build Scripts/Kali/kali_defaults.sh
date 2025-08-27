@@ -1,0 +1,54 @@
+#!/bin/bash
+
+set -e 
+NEW_HOSTNAME="kali"
+
+# Stage 1:
+echo "[*] Installing Kali Defaults"
+sudo apt-get install kali-defaults 
+
+# Stage 2:
+echo "[*] Changing hostname..."
+
+sudo hostnamectl set-hostname "$NEW_HOSTNAME"
+echo "[+] Hostname changed to $NEW_HOSTNAME"
+
+sudo hostnamectl set-hostname kali
+bash && clear
+
+# Stage 3:
+echo "[*] Installing kali Allwinner"
+sudo apt-get install -y kali-sbc-allwinner
+# Stage 3:
+echo "[*] Fixing missing packages.."
+sudo apt-get update && sudo apt-get update --fix-missing && sudo apt-get upgrade -y
+
+# Stage 4:
+echo "[*] Installing Kali Themes / Desktop Env"
+sudo apt-get update && sudo apt-get upgrade -y \
+    kali-themes \
+    kali-menu \
+    kali-screensaver \
+    kali-desktop-xfce
+
+# Stage 5:
+echo "[*] Fixing missing packages.."
+sudo apt-get update && sudo apt-get update --fix-missing && sudo apt-get upgrade -y
+
+# Stage 6:
+echo "[*] Fully Upgrading"
+sudo apt-get full-upgrade -y
+
+echo "[*] Installing Kali Tweaks && Tools {bluetooth/wifi/password/crypto}"
+sudo apt-get install kali-tweaks -y
+sudo apt-get install -y kali-tools-802-11 kali-tools-bluetooth kali-tools-crypto-stego kali-tools-top10 kali-tools-wireless kali-tools-passwords
+echo "[*] Fixing missing packages.."
+sudo apt-get update && sudo apt-get update --fix-missing && sudo apt-get upgrade -y
+
+# Stage 7:
+echo "[*] Cleaning up..."
+sudo apt-get autoremove -y
+
+# Stage 8:
+echo "[*] Rebooting OrangePi"
+sudo reboot
