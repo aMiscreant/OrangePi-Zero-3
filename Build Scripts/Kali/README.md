@@ -1,6 +1,4 @@
-chmod +x *.sh && ./kali_install.sh
-./kali_defaults.sh
-
+chmod +x *.sh
 Step 1:
 ./kali_install.sh
 
