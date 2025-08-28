@@ -1,5 +1,5 @@
 ## Simple Install Scripts
-## Installs Kali Linux Over Debian
+## Installs Parrot OS Over Debian
 
 ---
 
@@ -10,12 +10,12 @@ chmod +x *.sh
 
 ### Step 2:
 ```bash
-./kali_install.sh
+./parrotos_install.sh
 ```
 
 ### Step 3:
 ```bash
-./kali_defaults.sh
+./parrotos_defaults.sh
 ```
 
 ---
