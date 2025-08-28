@@ -13,7 +13,7 @@ PARROT_LINK="https://deb.parrot.sh/parrot/pool/main/p/parrot-archive-keyring/par
 PARROT_DEB="parrot-archive-keyring_2024.12_all.deb"
 
 # Step 1: Install keyring
-wget https://deb.parrot.sh/parrot/pool/main/p/parrot-archive-keyring/parrot-archive-keyring_2024.12_all.deb
+wget $PARROT_LINK
 dpkg -i $PARROT_DEB
 sleep 1
 rm -rf $PARROT_DEB
