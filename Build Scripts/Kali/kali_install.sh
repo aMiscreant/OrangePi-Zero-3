@@ -1,4 +1,12 @@
 #!/bin/bash
+# aMiscreant
+# ToDo
+# export DEBIAN_FRONTEND=noninteractive
+# set apt-get install/upgrade variable
+# sudo DEBIAN_FRONTEND=noninteractive apt-get -y \
+#    -o Dpkg::Options::="--force-confnew" \
+#    -o Dpkg::Options::="--force-confdef" install <packages>
+
 set -e
 
 echo "[*] Switching from Debian to Kali Rolling..."

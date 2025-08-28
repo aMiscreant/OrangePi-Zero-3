@@ -1,6 +1,10 @@
 #!/bin/bash
+# aMiscreant
 
-set -e 
+export DEBIAN_FRONTEND=noninteractive
+
+set -e
+
 NEW_HOSTNAME="kali"
 
 # Stage 1:
@@ -14,12 +18,14 @@ sudo hostnamectl set-hostname "$NEW_HOSTNAME"
 echo "[+] Hostname changed to $NEW_HOSTNAME"
 
 sudo hostnamectl set-hostname kali
+sudo sed -i "s/\borange[^[:space:]]*/kali/g" /etc/hosts
+
 bash && clear
 
 # Stage 3:
 echo "[*] Installing kali Allwinner"
 sudo apt-get install -y kali-sbc-allwinner
-# Stage 3:
+# Stage 3b:
 echo "[*] Fixing missing packages.."
 sudo apt-get update && sudo apt-get update --fix-missing && sudo apt-get upgrade -y
 
