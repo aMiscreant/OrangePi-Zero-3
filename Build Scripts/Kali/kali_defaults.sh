@@ -21,7 +21,7 @@ sudo sed -i "s/\borange[^[:space:]]*/kali/g" /etc/hosts
 
 # Stage 3:
 echo "[*] Installing kali AllWinner"
-sudo apt-get install -y kali-sbc-allwinner
+sudo apt-get install -y kali-sbc-allwinner || echo "[!] Failed to install kali-sbc-allwinner, continuing..."
 # Stage 3b:
 echo "[*] Fixing missing packages.."
 sudo apt-get update && sudo apt-get update --fix-missing && sudo apt-get upgrade -y
