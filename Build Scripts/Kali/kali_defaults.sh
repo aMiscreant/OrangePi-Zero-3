@@ -20,8 +20,6 @@ echo "[+] Hostname changed to $NEW_HOSTNAME"
 sudo hostnamectl set-hostname kali
 sudo sed -i "s/\borange[^[:space:]]*/kali/g" /etc/hosts
 
-bash && clear
-
 # Stage 3:
 echo "[*] Installing kali Allwinner"
 sudo apt-get install -y kali-sbc-allwinner
