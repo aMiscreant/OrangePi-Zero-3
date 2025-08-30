@@ -33,7 +33,7 @@ echo "deb [signed-by=/usr/share/keyrings/kali-archive-keyring.gpg] http://http.k
     sudo tee /etc/apt/sources.list
 
 # Step 4: Clean
-echo "[*] Cleaning apt-get soucres..."
+echo "[*] Cleaning apt-get sources..."
 # Clean out old lists
 sudo apt clean          # removes downloaded .deb files
 sudo rm -rf /var/lib/apt/lists/*   # removes old repo indexes

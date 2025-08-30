@@ -20,7 +20,7 @@ sudo hostnamectl set-hostname kali
 sudo sed -i "s/\borange[^[:space:]]*/kali/g" /etc/hosts
 
 # Stage 3:
-echo "[*] Installing kali Allwinner"
+echo "[*] Installing kali AllWinner"
 sudo apt-get install -y kali-sbc-allwinner
 # Stage 3b:
 echo "[*] Fixing missing packages.."
