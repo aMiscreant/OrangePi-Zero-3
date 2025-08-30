@@ -9,6 +9,8 @@
 
 set -e
 
+sudo apt-get update && sudo apt-get upgrade -y
+
 echo "[*] Switching from Debian to Kali Rolling..."
 
 # Step 1: Add Kali keyring
