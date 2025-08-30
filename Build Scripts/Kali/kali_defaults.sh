@@ -52,6 +52,17 @@ sudo apt-get update && sudo apt-get update --fix-missing && sudo apt-get upgrade
 echo "[*] Cleaning up..."
 sudo apt-get autoremove -y
 
+# Stage 7b:
+# optional
+
 # Stage 8:
 echo "[*] Rebooting OrangePi"
 sudo reboot
+
+optional() {
+  sudo apt install -y libgtk-4-bin gstreamer1.0-gl \
+    xdg-desktop-portal-gtk gstreamer1.0-libav \
+    gstreamer1.0-plugins-bad python3-asn1crypto \
+    docbook-xml fonts-dejavu libgtk-4-media-gstreamer \
+    libegl1-mesa-dev gstreamer1.0-alsa
+}
