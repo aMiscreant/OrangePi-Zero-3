@@ -1,7 +1,6 @@
 #!/bin/bash
 # aMiscreant
-
-export DEBIAN_FRONTEND=noninteractive
+# export DEBIAN_FRONTEND=noninteractive
 
 set -e
 
