@@ -1,10 +1,17 @@
 #!/bin/bash
 # aMiscreant
-# export DEBIAN_FRONTEND=noninteractive
 
 set -e
 
 NEW_HOSTNAME="kali"
+
+desktop_fix () {
+    sudo apt update && sudo apt install -y libgtk-4-bin \
+    gstreamer1.0-gl xdg-desktop-portal-gtk gstreamer1.0-libav \
+    gstreamer1.0-plugins-bad python3-asn1crypto \
+    docbook-xml fonts-dejavu libgtk-4-media-gstreamer \
+    libegl1-mesa-dev gstreamer1.0-alsa xorg dbus-x11 x11-xserver-utils
+}
 
 # Stage 1:
 echo "[*] Installing Kali Defaults"
@@ -47,22 +54,13 @@ sudo apt-get install kali-tweaks -y
 sudo apt-get install -y kali-tools-802-11 kali-tools-bluetooth kali-tools-crypto-stego kali-tools-top10 kali-tools-wireless kali-tools-passwords
 echo "[*] Fixing missing packages.."
 sudo apt-get update && sudo apt-get update --fix-missing && sudo apt-get upgrade -y
+# Stage 6b:
+desktop_fix
 
 # Stage 7:
 echo "[*] Cleaning up..."
 sudo apt-get autoremove -y
 
-# Stage 7b:
-# optional
-
 # Stage 8:
 echo "[*] Rebooting OrangePi"
 sudo reboot
-
-optional() {
-  sudo apt install -y libgtk-4-bin gstreamer1.0-gl \
-    xdg-desktop-portal-gtk gstreamer1.0-libav \
-    gstreamer1.0-plugins-bad python3-asn1crypto \
-    docbook-xml fonts-dejavu libgtk-4-media-gstreamer \
-    libegl1-mesa-dev gstreamer1.0-alsa
-}
