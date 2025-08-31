@@ -5,6 +5,7 @@ set -e
 
 NEW_HOSTNAME="kali"
 
+# ToDo Fix xfce-plugin bug
 desktop_fix () {
     sudo apt update && sudo apt install -y libgtk-4-bin \
     gstreamer1.0-gl xdg-desktop-portal-gtk gstreamer1.0-libav \
