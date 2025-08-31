@@ -13,10 +13,21 @@ PARROT_LINK="https://deb.parrot.sh/parrot/pool/main/p/parrot-archive-keyring/par
 PARROT_DEB="parrot-archive-keyring_2024.12_all.deb"
 
 # Step 1: Install keyring
-wget $PARROT_LINK
-dpkg -i $PARROT_DEB
-sleep 1
-rm -rf $PARROT_DEB
+if [ ! -f "$PARROT_DEB" ]; then
+  echo "[*] Downloading Parrot Keyring..."
+  wget "$PARROT_LINK"
+fi
+
+if ! dpkg -s parrot-archive-keyring >/dev/null 2>&1; then
+  echo "[*] Installing Parrot Keyring..."
+  sudo dpkg -i "$PARROT_DEB"
+  sleep 1
+else
+  echo "[=] Parrot Keyring already installed"
+fi
+
+# Clean up
+[ -f "$PARROT_DEB" ] && rm -f "$PARROT_DEB"
 
 # Step 2: Clean Debian repos
 echo "[*] Removing Debian repository entries..."
@@ -42,7 +53,7 @@ EOF
 
 
 # Step 4: Clean
-echo "[*] Cleaning apt-get soucres..."
+echo "[*] Cleaning apt-get sources..."
 # Clean out old lists
 sudo apt clean          # removes downloaded .deb files
 sudo rm -rf /var/lib/apt/lists/*   # removes old repo indexes
