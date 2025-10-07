@@ -17,6 +17,10 @@
       All other steps can remain the same, you will need pybluez stable from debian
       repo for this to work.
 
+- Build Scripts [Container build scripts for kali/parrot over debian.]
+
+      Simple scripts for settings up kali/parrot over debian os on orangepi zero3.
+
 - GPIO [GPIO Scripts]
 
         Interactive / GPIO scripts to view.
